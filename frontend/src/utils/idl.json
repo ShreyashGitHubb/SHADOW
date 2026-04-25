@@ -1,0 +1,43 @@
+{
+  "address": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS",
+  "metadata": {
+    "name": "shadow",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize_influencer",
+      "discriminator": [123, 143, 204, 155, 17, 182, 170, 247],
+      "accounts": [
+        { "name": "influencer", "writable": true, "pda": { "seeds": [{ "kind": "const", "value": [105, 110, 102, 108, 117, 101, 110, 99, 101, 114] }, { "kind": "arg", "path": "referral_id" }] } },
+        { "name": "authority", "writable": true, "signer": true },
+        { "name": "system_program", "address": "11111111111111111111111111111111" }
+      ],
+      "args": [{ "name": "referral_id", "type": "string" }]
+    },
+    {
+      "name": "register_referral",
+      "discriminator": [211, 222, 10, 10, 10, 10, 10, 10], 
+      "accounts": [
+        { "name": "referral_record", "writable": true, "pda": { "seeds": [{ "kind": "const", "value": [114, 101, 102, 101, 114, 114, 97, 108] }, { "kind": "account", "path": "user" }] } },
+        { "name": "influencer", "writable": false },
+        { "name": "user", "writable": true, "signer": true },
+        { "name": "system_program", "address": "11111111111111111111111111111111" }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Influencer",
+      "discriminator": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "name": "ReferralRecord",
+      "discriminator": [8, 7, 6, 5, 4, 3, 2, 1]
+    }
+  ],
+  "types": []
+}
